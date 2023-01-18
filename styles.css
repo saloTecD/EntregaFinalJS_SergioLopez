@@ -87,3 +87,27 @@ body{
     background-color: black;
     color: white;
 }
+
+#irABYoutube{
+    margin-top: 50px;
+    font-weight: bolder;
+    display: flex;
+    align-items:flex-end;
+    text-align: end;
+    justify-content: flex-end;
+    margin-right: 50px;
+}
+#listaT10{
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 50px;
+    justify-content: space-evenly;
+    overflow-wrap: break-word;
+    
+}
+.ytlistaT10{
+    border: 1px solid black;
+    color: black;
+    margin-left: 10px;
+    text-align: center;
+}
