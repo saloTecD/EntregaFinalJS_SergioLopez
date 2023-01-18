@@ -1,0 +1,86 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: cursive;
+}
+body{
+    height: 100vh;
+    width: 100vw;
+    background-color: white;
+    color: black;
+}
+.filtros{
+    
+    margin: 5px;
+}
+.oferta{
+    color: red;
+}
+#Encabezado{
+    display: flex;
+    
+    font-family: cursive;
+    font-size: larger;
+    text-align: center;
+    height: 10%; 
+    align-items: center;
+    justify-content:space-between;
+    width: 100vw;
+   
+}
+.encabezadoBackground{
+    background-color: rgb(248, 248, 210);
+    color: black;
+}
+
+#filtros-container{
+    display: flex;
+    margin-top: 20px;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.contenedor{
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 20px;
+    justify-content: space-evenly;
+    overflow-wrap: break-word;
+}
+.card{
+    display: flex;
+    margin: 5px;
+    border: 1px solid black;
+    text-align: center;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    max-width: 225px;
+    color: black;
+}
+
+.card h3{
+    font-size: small;
+}
+
+.selectorModo{
+    color: black;
+    
+    width: 20%;
+}
+#enc{
+    text-align:end;
+}
+#container{
+    margin-top: 20px;
+}
+
+.modoClaro{
+    background-color: white;
+    color: black;
+}
+.modoOscuro{
+    background-color: black;
+    color: white;
+}

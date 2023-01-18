@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./styles.css">
+    <title>Document</title>
+</head>
+<body class="modoClaro">
+    <header id="Encabezado" class="encabezadoBackground">
+        <div id="logoContainer"><img src="./assets/logoF.png" alt="logo"></div>
+        <div id="enc"> BIENVENIDO A TU MUSICA.COM</div>
+        <div class="selectorModo">
+            <div class="form-check form-switch">
+                <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault">
+                <label class="form-check-label" for="flexSwitchCheckDefault">Modo Oscuro</label>
+            </div>
+        </div>
+    </header>
+    
+    <div id="container">
+        <h3>Utiliza nuestros filtros para encontrar lo que buscas</h3>
+        <div id="filtros-container">
+            <div class="filtros"><button onclick="cardsAHtml(artistas)">Mira todo nuestro listado</button></div>
+            <div class="filtros">
+                <select id="artistaSelect">
+                    <option value="Imagine Dragons">Imagine Dragons</option>
+                    <option value="One Republic">One Republic</option>
+                    <option value="Vigiland">Vigiland</option>
+                    <option value="Billie Ellish">Billie Ellish</option>
+                    <option value="Coldplay">Coldplay</option>
+                    <option value="AJR">AJR</option>
+                    <option value="Walk The Moon">Walk the moon</option>
+                    <option value="Panic At the Disco">Panic At the Disco</option>
+                </select>
+
+                <button onclick="seleccionArtista()">Filtra por artista</button>
+            </div>
+
+    <script src="./index.js"></script>
+</body>
+</html>
