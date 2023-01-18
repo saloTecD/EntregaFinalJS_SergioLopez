@@ -48,6 +48,7 @@ body{
     margin-top: 20px;
     justify-content: space-evenly;
     overflow-wrap: break-word;
+    
 }
 .card{
     display: flex;
@@ -58,6 +59,7 @@ body{
     word-wrap: break-word;
     max-width: 225px;
     color: black;
+    background-color: white;
 }
 
 .card h3{
@@ -71,6 +73,7 @@ body{
 }
 #enc{
     text-align:end;
+    font-size: 2rem;
 }
 #container{
     margin-top: 20px;
