@@ -45,26 +45,105 @@ function oscuro(){
 //fetch a youtube
 
 poplist.onclick=()=>{
-    ytFetch()
+    ytFetchlist("RDCLAK5uy_mUdNYQXwkFOi0Cxqb7Imacp64HQe5EXwA")
 }
 
+rocklist.onclick=()=>{
+    ytFetchlist("RDCLAK5uy_muxSO3gDc46GWIhP2DPuBa12f44IWczug")
+}
+eleclist.onclick=()=>{
+    ytFetchlist("PLRhRrJscB-C7J7OUcsuUW6UdoWIIVDaYy")
+}
+salsalist.onclick=()=>{
+    ytFetchlist("PLGx8vKOKHzlGkJlSeHL4HC7fWjLki_mH5")
+}
 
-
-function ytFetch(){
-    fetch("https://youtube.googleapis.com/youtube/v3/playlistItems?part=snippet&playlistId=RDCLAK5uy_mUdNYQXwkFOi0Cxqb7Imacp64HQe5EXwA&key=AIzaSyA1NKnVvBvJX7pQDp4XyRSY-KC1ygnfipM")
+function ytFetchlist(lista){
+    fetch(`https://youtube.googleapis.com/youtube/v3/playlistItems?part=snippet&playlistId=${lista}&key=AIzaSyA1NKnVvBvJX7pQDp4XyRSY-KC1ygnfipM`)
     .then((respuesta)=>respuesta.json())
     .then((data)=>{
-        console.log(data)
-        let videoIdentificador=data.items[0].snippet.resourceId.videoId
-        let thumbnail=data.items[0].snippet.thumbnails.high
-        let title=data.items[0].snippet.title
-        console.log(videoIdentificador)
-        console.log(thumbnail)
-        console.log(title)
+        listaAHtml(data)
+         
     })
 }
 
+function listaAHtml(array){
+    listContainer.innerHTML=""
+    for(let i=0; i<array.items.length; i++){
+        console.log(array.items[i].snippet.thumbnails.high.url)
+        const card=document.createElement("div")
+        card.className="cardLista"
+        // card.setAttribute(`id`,`${array.items[i].snippet.title}`)
+        card.innerHTML=`
+            <div class="container-img">
+                <img src=${array.items[i].snippet.thumbnails.medium.url} alt=${array.items[i].snippet.title} id="${array.items[i].snippet.resourceId.videoId}"
+            </div>
+            <div class="title-link">
+                <a href="https://www.youtube.com/watch?v=${array.items[i].snippet.resourceId.videoId}">${array.items[i].snippet.title}
+        `
+        listContainer.appendChild(card)
+    }
 
+}
+
+
+function videoFrame(){
+
+}
+
+const onClick=(event)=>{
+    console.log(event.srcElement.id);
+    player.loadVideoById(event.srcElement.id)
+
+ }
+window.addEventListener(`click`,onClick)
+
+//////////////////////////////////////////////codigo de youtube////////////////////////////////////////////
+
+var tag = document.createElement('script');
+
+      tag.src = "https://www.youtube.com/iframe_api";
+      var firstScriptTag = document.getElementsByTagName('script')[0];
+      firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+      // 3. This function creates an <iframe> (and YouTube player)
+      //    after the API code downloads.
+      
+      var player;
+      function onYouTubeIframeAPIReady() {
+        console.log("llame funcion de yt")
+        console.log()
+        player = new YT.Player('player', {
+          height: '360',
+          width: '640',
+          videoId: 'PkZNo7MFNFg',
+          events: {
+            'onReady': onPlayerReady,
+            'onStateChange': onPlayerStateChange
+          }
+        });
+      }
+    
+
+      // 4. The API will call this function when the video player is ready.
+      function onPlayerReady(event) {
+        event.target.playVideo();
+      }
+
+      // 5. The API calls this function when the player's state changes.
+      //    The function indicates that when playing a video (state=1),
+      //    the player should play for six seconds and then stop.
+      var done = false;
+      function onPlayerStateChange(event) {
+        if (event.data == YT.PlayerState.PLAYING && !done) {
+          setTimeout(stopVideo, 10000);
+          done = true;
+        }
+      }
+      function stopVideo() {
+        player.stopVideo();
+      }
+    
 
 //codigo de prueba fetch youtube api
 

@@ -112,3 +112,37 @@ body{
     text-align: center;
     background-color: white;
 }
+
+#listContainer{
+    margin-top:60px ;
+    margin-left: 20px;
+    width: 30%;
+    
+}
+#player{
+    margin-top:60px ;
+    
+    width: 30%;
+}
+.cardLista{
+    margin-top: 50px;
+    
+}
+.title-link a{
+    text-decoration: none;
+    color: black;
+    font-family: fantasy;
+    text-align: center;
+}
+.title-link{
+    background-color: white;
+    width: fit-content;
+}
+
+.cuerpoLista{
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    
+    justify-content: space-around;
+}
