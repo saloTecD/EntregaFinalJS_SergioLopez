@@ -144,4 +144,147 @@ const artistas= [{
     "oferta":false
 
 },
+{
+    "id":11,
+    "artista":"American Authors",
+    "img":"./assets/American_Authors-bornToRun.jpg",
+    "genero":[
+        "rock"
+    ],
+    "album":"What We Live For",
+    "cancion":"I'm Born to Run",
+    "fecha":"Julio 2016",
+    "precio":10000,
+    "oferta":false
+
+},
+{
+    "id":12,
+    "artista":"American Authors",
+    "img":"./assets/goBigGoHome.jfif",
+    "genero":[
+        "rock"
+    ],
+    "album":"What We Live For",
+    "cancion":"Go Big or Go Home",
+    "fecha":"Julio 2016",
+    "precio":10000,
+    "oferta":true
+
+},
+{
+    "id":13,
+    "artista":"Barns Courtney",
+    "img":"./assets/goldenDandelions.jfif",
+    "genero":[
+        "rock"
+    ],
+    "album":"The Attractions of Youth",
+    "cancion":"Golden Dandelions",
+    "fecha":"2017",
+    "precio":25000,
+    "oferta":true
+
+},
+{
+    "id":14,
+    "artista":"Barns Courtney",
+    "img":"./assets/glitterGold.jfif",
+    "genero":[
+        "rock"
+    ],
+    "album":"The Attractions of Youth",
+    "cancion":"Glitter & Gold",
+    "fecha":"2017",
+    "precio":25000,
+    "oferta":false
+
+},
+{
+    "id":15,
+    "artista":"Barns Courtney",
+    "img":"./assets/99.jfif",
+    "genero":[
+        "rock"
+    ],
+    "album":"404",
+    "cancion":"99",
+    "fecha":"2016",
+    "precio":15000,
+    "oferta":true
+
+},
+{
+    "id":16,
+    "artista":"AJR",
+    "img":"./assets/worldViolin.jfif",
+    "genero":[
+        "rock",
+        "pop"
+    ],
+    "album":"OK Orchestra ",
+    "cancion":"World's Smallest Violin",
+    "fecha":"Marzo 2021",
+    "precio":22000,
+    "oferta":false
+
+},
+{
+    "id":17,
+    "artista":"Barns Courtney",
+    "img":"./assets/littleBoy.jfif",
+    "genero":[
+        "rock"
+    ],
+    "album":"The Attractions of Youth",
+    "cancion":"Little Boy",
+    "fecha":"2017",
+    "precio":25000,
+    "oferta":false
+
+},
+{
+    "id":18,
+    "artista":"Imagine Dragons",
+    "img":"./assets/believer.jfif",
+    "genero":[
+        "rock",
+        "pop"
+    ],
+    "album":"Evolve",
+    "cancion":"Believer",
+    "fecha":"Febrero 2017",
+    "precio":13000,
+    "oferta":true
+
+},
+{
+    "id":19,
+    "artista":"Imagine Dragons",
+    "img":"./assets/zero.jfif",
+    "genero":[
+        "rock",
+        "pop"
+    ],
+    "album":"Origins",
+    "cancion":"Zero",
+    "fecha":"Octubre 2018",
+    "precio":14000,
+    "oferta":false
+
+},
+{
+    "id":20,
+    "artista":"The Score",
+    "img":"./assets/unstoppable.jfif",
+    "genero":[
+        "rock"
+    ],
+    "album":"Single",
+    "cancion":"Unstoppable",
+    "fecha":"2016",
+    "precio":15000,
+    "oferta":true
+
+},
 ]
