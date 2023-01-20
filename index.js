@@ -7,6 +7,11 @@ const botonArtista=document.querySelector("#filtroArtista")
 const botonOrdenar=document.querySelector("#botonOrdenar")
 const filtroOferta=document.querySelector("#filtroOferta")
 
+//agregar favoritos vacio
+const fav=localStorage.getItem("favoritos")
+if(fav===null){
+    localStorage.setItem("favoritos",JSON.stringify([null]))
+}
 //verificar modo oscuro
 const mo=localStorage.getItem("modoOscuro")
 if(mo==="si"){
@@ -45,14 +50,20 @@ listaCompleta.onclick=()=>{
 }
    
 function cardsAHtml (array){
+    let img1
     const contenedor=document.querySelector(".contenedor")
     document.querySelector(".contenedor").innerHTML=""
+    const selectorFav=JSON.parse(localStorage.getItem("favoritos"))
     for (let i=0;i<array.length;i++){
-        
+        if(selectorFav.indexOf(array[i].id)<0){
+            img1="./assets/corazonSinSeleccionar.png"
+        }else{
+            img1="./assets/corazonSeleccionado.png"
+        }
         
         const card=document.createElement("div")
         card.className="card"
-        card.setAttribute(`id`,`${array[i].id}`)
+        card.setAttribute(`id`,`${array[i].id}c`)
         card.innerHTML=`
             <div class="container-img">
                 <img src=${array[i].img} alt=${array[i].name}
@@ -75,7 +86,7 @@ function cardsAHtml (array){
             <h3>
                 Precio:$${array[i].precio}
             </h3> 
-                            
+            <img src=${img1} id="${array[i].id}">          
         `
         contenedor.appendChild(card)
     }
@@ -300,3 +311,35 @@ filtroOferta.onclick=()=>{
             
         }
 }
+
+
+const onClick=(event)=>{
+    
+    const idf=Number(event.srcElement.id)
+    if(Number.isFinite(idf) && idf!=0){
+        console.log(idf)
+        cambiarImagenFav(idf)
+    }
+}
+
+function cambiarImagenFav(idf){
+    const favGuardados=JSON.parse(localStorage.getItem("favoritos"))
+    console.log(favGuardados)
+    const match=favGuardados.find(element => element==idf)
+    console.log(match)
+    
+    if(match===undefined){
+        favGuardados.push(idf)
+        localStorage.setItem("favoritos",JSON.stringify(favGuardados))
+        const imgCambiar=document.getElementById(idf)
+        imgCambiar.setAttribute(`src`,`./assets/corazonSeleccionado.png`)}
+
+else{
+    const indexABorrar=favGuardados.indexOf(idf)
+    favGuardados.splice(indexABorrar,1)
+    localStorage.setItem("favoritos",JSON.stringify(favGuardados))
+    const imgCambiar=document.getElementById(idf)
+    imgCambiar.setAttribute(`src`,`./assets/corazonSinSeleccionar.png`)
+}
+}
+document.querySelector(".contenedor").addEventListener(`click`,onClick)
