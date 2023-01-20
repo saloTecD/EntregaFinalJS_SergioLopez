@@ -41,15 +41,15 @@ function oscuro(){
     document.getElementById("flexSwitchCheckDefault").checked=true
 }
 
-
+swal("El contenido muscial presentado es de origen youtube y se apega a su uso protegido estricto")
 //fetch a youtube
 
 poplist.onclick=()=>{
-    ytFetchlist("RDCLAK5uy_mUdNYQXwkFOi0Cxqb7Imacp64HQe5EXwA")
+    ytFetchlist("RDCLAK5uy_nmS3YoxSwVVQk9lEQJ0UX4ZCjXsW_psU8")
 }
 
 rocklist.onclick=()=>{
-    ytFetchlist("RDCLAK5uy_muxSO3gDc46GWIhP2DPuBa12f44IWczug")
+    ytFetchlist("PLG_Cg1s08J6_JgFLx_h99o9xMFBegJ1j6")
 }
 eleclist.onclick=()=>{
     ytFetchlist("PLRhRrJscB-C7J7OUcsuUW6UdoWIIVDaYy")
@@ -87,16 +87,15 @@ function listaAHtml(array){
 }
 
 
-function videoFrame(){
 
-}
 
 const onClick=(event)=>{
     console.log(event.srcElement.id);
     player.loadVideoById(event.srcElement.id)
 
  }
-window.addEventListener(`click`,onClick)
+
+document.querySelector("#listContainer").addEventListener(`click`,onClick)
 
 //////////////////////////////////////////////codigo de youtube////////////////////////////////////////////
 

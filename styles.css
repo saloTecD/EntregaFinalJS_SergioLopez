@@ -121,7 +121,8 @@ body{
 }
 #player{
     margin-top:60px ;
-    
+    position: sticky;
+    top: 50px;
     width: 30%;
 }
 .cardLista{
