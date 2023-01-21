@@ -41,7 +41,7 @@ function oscuro(){
     document.getElementById("flexSwitchCheckDefault").checked=true
 }
 
-swal("El contenido muscial presentado es de origen youtube y se apega a su uso protegido estricto")
+swal("El contenido musical presentado es de origen youtube y se apega a su uso protegido estricto")
 //fetch a youtube
 
 poplist.onclick=()=>{
@@ -65,6 +65,7 @@ function ytFetchlist(lista){
         listaAHtml(data)
          
     })
+    .catch("La Lista de reproduccion no se encuentra disponible")
 }
 
 function listaAHtml(array){
@@ -79,7 +80,7 @@ function listaAHtml(array){
                 <img src=${array.items[i].snippet.thumbnails.medium.url} alt=${array.items[i].snippet.title} id="${array.items[i].snippet.resourceId.videoId}"
             </div>
             <div class="title-link">
-                <a href="https://www.youtube.com/watch?v=${array.items[i].snippet.resourceId.videoId}">${array.items[i].snippet.title}
+                <p>${array.items[i].snippet.title}</p>
         `
         listContainer.appendChild(card)
     }
@@ -97,7 +98,7 @@ const onClick=(event)=>{
 
 document.querySelector("#listContainer").addEventListener(`click`,onClick)
 
-//////////////////////////////////////////////codigo de youtube////////////////////////////////////////////
+//////////////////////////////////////////////codigo de youtube iframe////////////////////////////////////////////
 
 var tag = document.createElement('script');
 
@@ -105,8 +106,7 @@ var tag = document.createElement('script');
       var firstScriptTag = document.getElementsByTagName('script')[0];
       firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
 
-      // 3. This function creates an <iframe> (and YouTube player)
-      //    after the API code downloads.
+      
       
       var player;
       function onYouTubeIframeAPIReady() {
@@ -124,14 +124,12 @@ var tag = document.createElement('script');
       }
     
 
-      // 4. The API will call this function when the video player is ready.
+      
       function onPlayerReady(event) {
         event.target.playVideo();
       }
 
-      // 5. The API calls this function when the player's state changes.
-      //    The function indicates that when playing a video (state=1),
-      //    the player should play for six seconds and then stop.
+     
       var done = false;
       function onPlayerStateChange(event) {
         if (event.data == YT.PlayerState.PLAYING && !done) {
@@ -142,30 +140,3 @@ var tag = document.createElement('script');
       function stopVideo() {
         player.stopVideo();
       }
-    
-
-//codigo de prueba fetch youtube api
-
-// fetch("https://www.googleapis.com/youtube/v3/search?part=id?part=snippet&id=RDCLAK5uy_mUdNYQXwkFOi0Cxqb7Imacp64HQe5EXwA&key=AIzaSyA1NKnVvBvJX7pQDp4XyRSY-KC1ygnfipM")
-// .then((respuesta)=>respuesta.json())
-// .then((data)=>{
-//     console.log(data)})
-    // const array=data.items
-    // array.forEach(element => {
-        // console.log(element.id.videoId)
-        // let id=element.id.videoId
-        // console.log(id)
-        // escribirhtml(id)
-        // document.getElementById("#contenedor").innerHTML=`https://www.youtube.com/watch?v=${id}`
-    // });
-    // console.log(array)
-    
-    
-// })
-// .catch((error)=>console.log("malio sal"))
-
-
-// function escribirhtml(videoid){
-//     const contenedor=document.querySelector("#contenedor")
-//     contenedor.innerHTML=`https://www.youtube.com/watch?v=${videoid}`
-// }
