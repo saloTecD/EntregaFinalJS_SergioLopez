@@ -110,12 +110,18 @@ function filtroArtista(seleccion){
 
     const contenedor=document.querySelector(".contenedor")
     document.querySelector(".contenedor").innerHTML=""
+    let img1
+    const selectorFav=JSON.parse(localStorage.getItem("favoritos"))
         for (let i=0;i<filtro.length;i++){
-            
+            if(selectorFav.indexOf(filtro[i].id)<0){
+                img1="./assets/corazonSinSeleccionar.png"
+            }else{
+                img1="./assets/corazonSeleccionado.png"
+            }
             
             const card=document.createElement("div")
             card.className="card"
-            card.setAttribute(`id`,`${filtro[i].id}`)
+            card.setAttribute(`id`,`${filtro[i].id}c`)
             card.innerHTML=`
                 <div class="container-img">
                     <img src=${filtro[i].img} alt=${filtro[i].name}
@@ -138,7 +144,7 @@ function filtroArtista(seleccion){
                 <h3>
                     Precio:$${filtro[i].precio}
                 </h3> 
-                                
+                <img src=${img1} id="${filtro[i].id}">                
             `
             contenedor.appendChild(card)
             
@@ -160,7 +166,7 @@ botonOrdenar.onclick=()=>{
 }
 
 function sortArtistaA(seleccion){
-    console.log(seleccion)
+    
 
    const artistasOrdenados=[...artistas].sort((a,b)=>{
     if(a.artista<b.artista){
@@ -173,15 +179,21 @@ function sortArtistaA(seleccion){
         return 0
     }
 })
-    console.log(artistasOrdenados)
+    
     const contenedor=document.querySelector(".contenedor")
     document.querySelector(".contenedor").innerHTML=""
+    let img1
+    const selectorFav=JSON.parse(localStorage.getItem("favoritos"))
         for (let i=0;i<artistasOrdenados.length;i++){
-            
+            if(selectorFav.indexOf(artistasOrdenados[i].id)<0){
+                img1="./assets/corazonSinSeleccionar.png"
+            }else{
+                img1="./assets/corazonSeleccionado.png"
+            }
             
             const card=document.createElement("div")
             card.className="card"
-            card.setAttribute(`id`,`${artistasOrdenados[i].id}`)
+            card.setAttribute(`id`,`${artistasOrdenados[i].id}c`)
             card.innerHTML=`
                 <div class="container-img">
                     <img src=${artistasOrdenados[i].img} alt=${artistasOrdenados[i].name}
@@ -204,7 +216,7 @@ function sortArtistaA(seleccion){
                 <h3>
                     Precio:$${artistasOrdenados[i].precio}
                 </h3> 
-                                
+                <img src=${img1} id="${artistasOrdenados[i].id}">                   
             `
             contenedor.appendChild(card)
             
@@ -212,7 +224,7 @@ function sortArtistaA(seleccion){
 }
 
 function sortArtistaZ(seleccion){
-    console.log(seleccion)
+    
 
    const artistasOrdenados=[...artistas].sort((a,b)=>{
     if(a.artista<b.artista){
@@ -225,15 +237,21 @@ function sortArtistaZ(seleccion){
         return 0
     }
 })
-    console.log(artistasOrdenados)
+    
     const contenedor=document.querySelector(".contenedor")
     document.querySelector(".contenedor").innerHTML=""
+    let img1
+    const selectorFav=JSON.parse(localStorage.getItem("favoritos"))
     for (let i=0;i<artistasOrdenados.length;i++){
-            
+        if(selectorFav.indexOf(artistasOrdenados[i].id)<0){
+            img1="./assets/corazonSinSeleccionar.png"
+        }else{
+            img1="./assets/corazonSeleccionado.png"
+        }    
             
         const card=document.createElement("div")
         card.className="card"
-        card.setAttribute(`id`,`${artistasOrdenados[i].id}`)
+        card.setAttribute(`id`,`${artistasOrdenados[i].id}c`)
         card.innerHTML=`
             <div class="container-img">
                 <img src=${artistasOrdenados[i].img} alt=${artistasOrdenados[i].name}
@@ -256,7 +274,7 @@ function sortArtistaZ(seleccion){
             <h3>
                 Precio:$${artistasOrdenados[i].precio}
             </h3> 
-                            
+            <img src=${img1} id="${artistasOrdenados[i].id}">                
         `
         contenedor.appendChild(card)
         
@@ -266,7 +284,7 @@ function sortArtistaZ(seleccion){
 
 //Filtro de ofertas
 filtroOferta.onclick=()=>{
-    console.log("presione")
+    
     const filtro=artistas.filter((elemento)=>{
         return elemento.oferta==true
     })
@@ -274,12 +292,18 @@ filtroOferta.onclick=()=>{
 
     const contenedor=document.querySelector(".contenedor")
     document.querySelector(".contenedor").innerHTML=""
+    let img1
+    const selectorFav=JSON.parse(localStorage.getItem("favoritos"))
         for (let i=0;i<filtro.length;i++){
-            
+            if(selectorFav.indexOf(filtro[i].id)<0){
+                img1="./assets/corazonSinSeleccionar.png"
+            }else{
+                img1="./assets/corazonSeleccionado.png"
+            }  
             
             const card=document.createElement("div")
             card.className="card"
-            card.setAttribute(`id`,`${filtro[i].id}`)
+            card.setAttribute(`id`,`${filtro[i].id}c`)
             card.innerHTML=`
                 <div class="container-img">
                     <img src=${filtro[i].img} alt=${filtro[i].name}
@@ -305,7 +329,7 @@ filtroOferta.onclick=()=>{
                 <h3 class="oferta"> 
                 Precio con descuento del 10% pagando con visa:$${filtro[i].precio-filtro[i].precio*10/100}
                 </h3>
-                                
+                <img src=${img1} id="${filtro[i].id}">                 
             `
             contenedor.appendChild(card)
             
@@ -317,16 +341,16 @@ const onClick=(event)=>{
     
     const idf=Number(event.srcElement.id)
     if(Number.isFinite(idf) && idf!=0){
-        console.log(idf)
+        
         cambiarImagenFav(idf)
     }
 }
 
 function cambiarImagenFav(idf){
     const favGuardados=JSON.parse(localStorage.getItem("favoritos"))
-    console.log(favGuardados)
+    
     const match=favGuardados.find(element => element==idf)
-    console.log(match)
+    
     
     if(match===undefined){
         favGuardados.push(idf)
@@ -334,12 +358,13 @@ function cambiarImagenFav(idf){
         const imgCambiar=document.getElementById(idf)
         imgCambiar.setAttribute(`src`,`./assets/corazonSeleccionado.png`)}
 
-else{
-    const indexABorrar=favGuardados.indexOf(idf)
-    favGuardados.splice(indexABorrar,1)
-    localStorage.setItem("favoritos",JSON.stringify(favGuardados))
-    const imgCambiar=document.getElementById(idf)
-    imgCambiar.setAttribute(`src`,`./assets/corazonSinSeleccionar.png`)
-}
+    else{
+        const indexABorrar=favGuardados.indexOf(idf)
+        favGuardados.splice(indexABorrar,1)
+        localStorage.setItem("favoritos",JSON.stringify(favGuardados))
+        const imgCambiar=document.getElementById(idf)
+        imgCambiar.setAttribute(`src`,`./assets/corazonSinSeleccionar.png`)
+        
+    }
 }
 document.querySelector(".contenedor").addEventListener(`click`,onClick)

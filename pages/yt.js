@@ -71,10 +71,10 @@ function ytFetchlist(lista){
 function listaAHtml(array){
     listContainer.innerHTML=""
     for(let i=0; i<array.items.length; i++){
-        console.log(array.items[i].snippet.thumbnails.high.url)
+        
         const card=document.createElement("div")
         card.className="cardLista"
-        // card.setAttribute(`id`,`${array.items[i].snippet.title}`)
+        
         card.innerHTML=`
             <div class="container-img">
                 <img src=${array.items[i].snippet.thumbnails.medium.url} alt=${array.items[i].snippet.title} id="${array.items[i].snippet.resourceId.videoId}"
@@ -91,7 +91,7 @@ function listaAHtml(array){
 
 
 const onClick=(event)=>{
-    console.log(event.srcElement.id);
+    
     player.loadVideoById(event.srcElement.id)
 
  }
@@ -110,8 +110,7 @@ var tag = document.createElement('script');
       
       var player;
       function onYouTubeIframeAPIReady() {
-        console.log("llame funcion de yt")
-        console.log()
+        
         player = new YT.Player('player', {
           height: '360',
           width: '640',
