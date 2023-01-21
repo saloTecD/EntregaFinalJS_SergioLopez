@@ -6,6 +6,7 @@ const listaCompleta=document.querySelector("#botonListaCompleta")
 const botonArtista=document.querySelector("#filtroArtista")
 const botonOrdenar=document.querySelector("#botonOrdenar")
 const filtroOferta=document.querySelector("#filtroOferta")
+const tusFavoritos=document.querySelector("#tusFavoritos")
 
 //agregar favoritos vacio
 const fav=localStorage.getItem("favoritos")
@@ -336,7 +337,62 @@ filtroOferta.onclick=()=>{
         }
 }
 
+//mostrar favoritos
 
+tusFavoritos.onclick=()=>{
+    const contenedor=document.querySelector(".contenedor")
+    document.querySelector(".contenedor").innerHTML=""
+    let arrayFav=JSON.parse(localStorage.getItem("favoritos"))
+    let img1
+    const selectorFav=JSON.parse(localStorage.getItem("favoritos"))
+    for(let i=0;i<arrayFav.length;i++){
+        if(arrayFav[i]!==null){
+            arrayFav[i]=arrayFav[i]-1
+        if(selectorFav.indexOf(artistas[arrayFav[i]].id)<0){
+            img1="./assets/corazonSinSeleccionar.png"
+        }else{
+            img1="./assets/corazonSeleccionado.png"
+        }
+    }
+
+        if(arrayFav[i]!==null){
+            
+            
+        const card=document.createElement("div")
+            card.className="card"
+            card.setAttribute(`id`,`${artistas[arrayFav[i]].id}c`)
+            card.innerHTML=`
+                <div class="container-img">
+                    <img src=${artistas[arrayFav[i]].img} alt=${artistas[arrayFav[i]].name}
+                </div>
+                <h3>
+                    Artista:${artistas[arrayFav[i]].artista}
+                </h3>
+                <h3>
+                    Genero:${artistas[arrayFav[i]].genero}
+                </h3>
+                <p>
+                    Album:${artistas[arrayFav[i]].album}
+                </p> 
+                <h3>
+                    Cancion:${artistas[arrayFav[i]].cancion}
+                </h3> 
+                <h3>
+                    Fecha:${artistas[arrayFav[i]].fecha}
+                </h3> 
+                <h3>
+                    Precio:$${artistas[arrayFav[i]].precio}
+                </h3>
+                
+                <img src=${img1} id="${artistas[arrayFav[i]].id}">                 
+            `
+            contenedor.appendChild(card)
+        }
+    }
+}
+
+
+//listener del click en el boton favoritos
 const onClick=(event)=>{
     
     const idf=Number(event.srcElement.id)
